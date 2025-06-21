@@ -2,6 +2,7 @@
     --background-color: #393d42;
     --to-do-color: #cc1616;
     --wip-color: #ffb300;
+    --on-hold-color: #0086ed;
     --done-color: #317f43;
     --dark-color: #111;
     --light-color: #eee;
@@ -38,29 +39,70 @@ h1 {
     background-color: #ddd;
     color: #333;
     width: 100vw;
-    height: 7vh;
+    height: 5vh;
     text-align: center;
     border-bottom: 1px solid var(--dark-color);
 }
 
+h2 {
+    padding: 5px;
+}
+
 .column {
-    padding: 10px;
     display: flex;
+    gap: 10px;
+    padding: 10px 5px;
     flex-direction: column;
-    width: 33.33%;
+    width: 25%;
     height: 93vh;
     border-right: 1px solid var(--dark-color);
 }
 
-.column1 {
+.to_do-card {
+    border: 2px solid var(--to-do-color);
+}
+
+.wip-card {
+    border: 2px solid var(--wip-color);
+}
+
+.on_hold-card {
+    border: 2px solid var(--on-hold-color);
+}
+
+.done-card {
+    border: 2px solid var(--done-color);
+}
+
+.to_do-border {
+    border: 1px solid var(--to-do-color);
+}
+
+.wip-border {
+    border: 1px solid var(--wip-color);
+}
+
+.on_hold-border {
+    border: 1px solid var(--on-hold-color);
+}
+
+.done-border {
+    border: 1px solid var(--done-color);
+}
+
+.to_do-background {
     background-color: var(--to-do-color);
 }
 
-.column2 {
+.wip-background {
     background-color: var(--wip-color);
 }
 
-.column3 {
+.on_hold-background {
+    background-color: var(--on-hold-color);
+}
+
+.done-background {
     background-color: var(--done-color);
 }
 
@@ -73,14 +115,18 @@ h1 {
 
 .prev-button, .next-button {
     background-color: #ccc;
-    width: 5%;
+    width: 7.5%;
     height: 100%;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 
 .card-content {
-    padding: 5px;
-    width: 95%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 15px;
+    width: 85%;
 }
 
 .prev-button {
@@ -89,4 +135,13 @@ h1 {
 
 .next-button {
     border-radius: 0 10px 10px 0;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.detail {
+    font-size: 0.8rem;
 }

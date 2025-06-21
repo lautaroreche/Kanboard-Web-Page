@@ -7,57 +7,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kanban web">
     <meta name="keywords" content="kanban, kanban board, tablero kanban, tareas, tasks">
-    <title>My Kanban board</title>
+    <title>Kanban board</title>
     <link rel="icon" href="{% static 'images/favicon.png' %}" type="image/x-icon">
     <link rel="stylesheet" href="{% static 'styles/style.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
     <div class="flex-center">
-        <h1 class="flex-center">Kanban board - lautaroreche</h1>
+        <h1 class="flex-center">Kanban board</h1>
     </div>
     <main>
-        <div class="column column1">
-            <div class="card flex-row">
-                <div class="prev-button">
-
-                </div>
-                <div class="card-content">
-                    <p>Lorem100</p>
-                </div>
-                <div class="next-button">
-                    
-                </div>
+        {% for column in columns %}
+            <div class="column">
+                <h2 class="{{column.status}}-background flex-center">{{column.name}}</h2>
+                {% for task in column.tasks %}
+                    <div class="card flex-row {{task.status}}-card">
+                        <div class="prev-button flex-center">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </div>
+                        <div class="card-content">
+                            <p class="title">{{task.title}}</p>
+                            <hr class="{{task.status}}-border">
+                            <p class="detail">{{task.detail}}</p>
+                        </div>
+                        <div class="next-button flex-center">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="card flex-row">
-                <div class="prev-button">
-
-                </div>
-                <div class="card-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio temporibus deserunt minus, mollitia doloremque, maiores facere similique recusandae excepturi nisi placeat corporis eius! Perspiciatis, hic harum repellat a natus eius, iusto consequuntur suscipit eveniet distinctio, aut excepturi tempore sapiente atque ullam nam illum vitae! Rem sint quam fugiat nesciunt, architecto laboriosam tempore quo modi rerum. Labore dolores id corrupti in tempore, itaque quia temporibus blanditiis vel? Sed, quos! Eum vitae, ad, atque quaerat ipsa aliquid rerum exercitationem aspernatur hic facilis, optio itaque culpa recusandae quam laborum. Vitae iure quis quos fugit odio illo earum, voluptates perspiciatis magnam natus mollitia? Perferendis!</p>
-                </div>
-                <div class="next-button">
-                    
-                </div>
-            </div>
-            <div class="card flex-row">
-                <div class="prev-button">
-
-                </div>
-                <div class="card-content">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime accusamus necessitatibus, cupiditate amet porro officia facilis, deserunt libero aspernatur perspiciatis in officiis enim magni rerum nihil sit molestias saepe id ab error! Quas, modi excepturi praesentium laboriosam ullam molestias delectus!</p>
-                </div>
-                <div class="next-button">
-                    
-                </div>
-            </div>
-        </div>
-        <div class="column column2">
-    
-        </div>
-        <div class="column column3">
-
-        </div>
+        {% endfor %}
     </main>
 </body>
 </html>
