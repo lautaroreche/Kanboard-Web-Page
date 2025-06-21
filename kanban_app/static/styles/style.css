@@ -1,12 +1,92 @@
 :root {
-    --main-color: #393d42;
+    --background-color: #393d42;
+    --to-do-color: #cc1616;
+    --wip-color: #ffb300;
+    --done-color: #317f43;
+    --dark-color: #111;
+    --light-color: #eee;
 }
 
-html {
+* {
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
 }
 
 body {
-    background-color: var(--main-color);
+    background-color: var(--background-color);
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+}
+
+h1 {
+    background-color: #ddd;
+    color: #333;
+    width: 100vw;
+    height: 7vh;
+    text-align: center;
+    border-bottom: 1px solid var(--dark-color);
+}
+
+.column {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 33.33%;
+    height: 93vh;
+    border-right: 1px solid var(--dark-color);
+}
+
+.column1 {
+    background-color: var(--to-do-color);
+}
+
+.column2 {
+    background-color: var(--wip-color);
+}
+
+.column3 {
+    background-color: var(--done-color);
+}
+
+.card {
+    margin: 6px;
+    min-height: 50px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+
+.prev-button, .next-button {
+    background-color: #ccc;
+    width: 5%;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+.card-content {
+    padding: 5px;
+    width: 95%;
+}
+
+.prev-button {
+    border-radius: 10px 0 0 10px;
+}
+
+.next-button {
+    border-radius: 0 10px 10px 0;
 }
