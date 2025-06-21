@@ -1,0 +1,39 @@
+# Virtual environment files
+env/
+venv/
+env/
+ENTORNOVIRTUAL/
+*.pyc
+*.pyo
+__pycache__/
+
+# Local config
+.env
+*.env
+*.sqlite3
+config/settings_local.py
+
+# Logs and cache
+logfile
+*.log
+*.pot
+*.mo
+*.swp
+*.swo
+*.swn
+*.DS_Store
+
+# Django secrets
+.env
+config/settings.pyc
+
+# Compilation and static files
+node_modules/
+
+# Dependencies files
+Pipfile
+Pipfile.lock
+
+# IDEs files and text editors
+.vscode/
+.idea/
