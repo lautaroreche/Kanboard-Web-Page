@@ -62,11 +62,6 @@ def change_status(request, task_id, direction):
 
 
 @login_required
-def edit(request, task_id):
-    return redirect('home')
-
-
-@login_required
 def create(request):
     if request.method == "POST":
         title = request.POST.get("title")

@@ -26,6 +26,11 @@
     flex-direction: row;
 }
 
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
 body {
     background-color: var(--background-color);
 }
@@ -212,6 +217,75 @@ h2 {
     border: none;
     background: transparent;
     outline: none;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-container h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.login-form label {
+    display: block;
+    margin-bottom: 0.3rem;
+    color: var(--dark-color);
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+    border-color: var(--to-do-color);
+    box-shadow: 0 0 0 1px var(--to-do-color);
+    outline: none;
+}
+
+.login-form p {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--to-do-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.login-form button:hover {
+    background-color: var(--strong-to-do-color);
 }
 
 
