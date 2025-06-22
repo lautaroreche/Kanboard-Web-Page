@@ -67,6 +67,15 @@ def edit(request, task_id):
 
 
 @login_required
+def create(request):
+    if request.method == "POST":
+        title = request.POST.get("title")
+        detail = request.POST.get("detail")
+        Task.objects.create(title=title, detail=detail, status="to_do", user=request.user)
+    return redirect("home")
+
+
+@login_required
 def delete(request, task_id):
     task = Task.objects.get(id=task_id, user=request.user)
     task.delete()

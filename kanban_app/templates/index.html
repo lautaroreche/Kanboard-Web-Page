@@ -14,9 +14,6 @@
 
 </head>
 <body>
-    <div class="flex-center">
-        <h1 class="flex-center">Kanban board</h1>
-    </div>
     <main>
         {% for column in columns %}
             <div class="column {% if column.status == 'done' %}
@@ -25,6 +22,7 @@
 
                 {% include 'card.html' %}
 
+                {% include 'create_task.html' %}
             </div>
             {% if not forloop.last %}
                 <div class="column-divider {% if column.status == 'on_hold' %}

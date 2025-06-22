@@ -1,6 +1,7 @@
 :root {
     --background-color: #393d42;
     --to-do-color: #cc1616;
+    --strong-to-do-color: #b61313;
     --wip-color: #ffb300;
     --on-hold-color: #0086ed;
     --done-color: #317f43;
@@ -35,18 +36,10 @@ main {
     min-height: 90vh;
 }
 
-h1 {
-    margin: 5px;
-    background-color: #ddd;
-    color: #333;
-    width: 100vw;
-    height: 5vh;
-    text-align: center;
-    border-bottom: 1px solid var(--dark-color);
-}
-
 h2 {
+    margin: 5px;
     padding: 5px;
+    border-radius: 10px;
 }
 
 .column {
@@ -74,19 +67,19 @@ h2 {
     border: 2px solid var(--done-color);
 }
 
-.to_do-border {
+.to_do-hr {
     border: 1px solid var(--to-do-color);
 }
 
-.wip-border {
+.wip-hr {
     border: 1px solid var(--wip-color);
 }
 
-.on_hold-border {
+.on_hold-hr {
     border: 1px solid var(--on-hold-color);
 }
 
-.done-border {
+.done-hr {
     border: 1px solid var(--done-color);
 }
 
@@ -123,20 +116,25 @@ h2 {
     color: var(--dark-color)
 }
 
+.prev-button {
+    border-radius: 8px 0 0 8px;
+}
+
+.next-button {
+    border-radius: 0 8px 8px 0;
+}
+
+.prev-button:hover, .next-button:hover {
+    background-color: #bbb;
+    transition: background-color 0.3s ease;
+}
+
 .card-content {
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding: 10px;
     width: 100%;
-}
-
-.prev-button {
-    border-radius: 10px 0 0 10px;
-}
-
-.next-button {
-    border-radius: 0 10px 10px 0;
 }
 
 .title {
@@ -169,8 +167,39 @@ h2 {
     color: var(--dark-color);
 }
 
+.action-buttons a:hover {
+    color: #000;
+    transition: background-color 0.3s ease;
+}
+
 .fa-chevron-right, .fa-chevron-left {
     font-size: 1.1rem;
+}
+
+.add-task-button {
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--to-do-color);
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.add-task-button:hover {
+    background-color: var(--strong-to-do-color);
+}
+
+.fa-plus {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+}
+
+.new-task-card input {
+    border: none;
+    background: transparent;
+    outline: none;
 }
 
 
