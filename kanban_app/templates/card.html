@@ -1,0 +1,23 @@
+{% load static %}
+
+{% for task in column.tasks %}
+    <div class="card flex-row {{task.status}}-card">
+        {% if task.status != "to_do" %}
+            <a href="{% url 'change_status' task.id 'prev' %}" class="prev-button flex-center flex-row" title="">
+                <i class="fa-solid fa-chevron-left"></i>
+            </a>
+        {% endif %}
+
+        <div class="card-content">
+            <p class="title">{{task.title}}</p>
+            <hr class="{{task.status}}-border">
+            <p class="detail">{{task.detail}}</p>
+        </div>
+
+        {% if task.status != "done" %}
+            <a href="{% url 'change_status' task.id 'next' %}" class="next-button flex-center flex-row" title="">
+                <i class="fa-solid fa-chevron-right"></i>
+            </a>
+        {% endif %}
+    </div>
+{% endfor %}

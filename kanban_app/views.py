@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from .models import Task
+from django.contrib.auth.decorators import login_required
 
 
-def get_context():
+def get_context(user):
     to_do_tasks = []
     wip_tasks = []
     on_hold_tasks = []
     done_tasks = []
 
-    tasks = Task.objects.all()
+    tasks = Task.objects.filter(user=user)
     
     for task in tasks:
         if task.status == 'to_do':
@@ -32,13 +33,15 @@ def get_context():
     return context
 
 
+@login_required
 def home(request):
-    context = get_context()
+    context = get_context(request.user)
     return render(request, 'index.html', context)
 
 
+@login_required
 def change_status(request, id, direction):
-    task = Task.objects.get(id=id)
+    task = Task.objects.get(id=id, user=request.user)
 
     if direction == "next":
         if task.status == "on_hold":
@@ -56,6 +59,3 @@ def change_status(request, id, direction):
             task.status = "on_hold"
     task.save()
     return redirect('home')
-        
-        
-        

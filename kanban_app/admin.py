@@ -4,8 +4,8 @@ from django.contrib.sessions.models import Session
 
 
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'detail', 'status')
-    search_fields = ('id', 'title', 'detail', 'status')
+    list_display = ('id', 'title', 'detail', 'status', 'user')
+    search_fields = ('id', 'title', 'detail', 'status', 'user')
 
 
 admin.site.register(Session)
