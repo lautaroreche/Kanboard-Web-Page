@@ -160,17 +160,16 @@ h2 {
     justify-content: space-between;
 }
 
-.action-buttons {
-    gap: 5px;
+.superior-card a {
+    text-decoration: none;
 }
 
-.action-buttons a {
-    text-decoration: none;
+.fa-trash-can {
     color: var(--dark-color);
 }
 
-.action-buttons a:hover {
-    color: #000;
+.fa-trash-can:hover {
+    color: var(--to-do-color);
     transition: background-color 0.3s ease;
 }
 
