@@ -19,14 +19,16 @@
     </div>
     <main>
         {% for column in columns %}
-            <div class="column">
+            <div class="column {% if column.status == 'done' %}
+            done-column {% endif %}">
                 <h2 class="{{column.status}}-background flex-center">{{column.name}}</h2>
 
                 {% include 'card.html' %}
 
             </div>
             {% if not forloop.last %}
-                <div class="column-divider"></div>
+                <div class="column-divider {% if column.status == 'on_hold' %}
+                on_hold-column-divider {% endif %}"></div>
             {% endif %}
         {% endfor %}
     </main>
