@@ -142,7 +142,7 @@ h2 {
 .title {
     font-size: 1.2rem;
     font-weight: 600;
-    max-width: 85%;
+    width: 85%;
 }
 
 .detail {
@@ -156,10 +156,63 @@ h2 {
 }
 
 .superior-card {
+    gap: 10px;
     justify-content: space-between;
+}
+
+.action-buttons {
+    gap: 5px;
 }
 
 .action-buttons a {
     text-decoration: none;
     color: var(--dark-color);
+}
+
+
+@media screen  and (max-width: 890px) {
+    .done-column, .on_hold-column-divider {
+        display: none;
+    }
+
+    .column {
+        width: 33.33%;
+    }
+}
+
+
+@media screen  and (max-width: 768px) {
+    .title {
+        font-size: 1rem;
+    }
+    
+    .detail {
+        font-size: 0.8rem;
+    }
+
+    .superior-card {
+        flex-direction: column-reverse;
+    }
+}
+
+
+@media screen  and (max-width: 600px) {
+    .title {
+        font-size: 0.8rem;
+    }
+    
+    .detail {
+        font-size: 0.6rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+
+@media screen  and (max-width: 450px) {
+    .title {
+        font-size: 0.7rem;
+    }
 }
