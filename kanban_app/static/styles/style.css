@@ -178,9 +178,17 @@ h2 {
     font-size: 1.1rem;
 }
 
+.add-task-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+    padding: 4px;
+}
+
 .add-task-button {
     padding: 5px;
-    height: 30px;
+    height: 25px;
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -194,11 +202,13 @@ h2 {
 }
 
 .fa-plus {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--dark-color);
 }
 
 .new-task-card input {
+    padding-left: 3px;
+    width: 100%;
     border: none;
     background: transparent;
     outline: none;
@@ -250,6 +260,19 @@ h2 {
 
     .fa-chevron-right, .fa-chevron-left {
         font-size: 0.6rem;
+    }
+
+    .column {
+        gap: 2px;
+        margin: 0;
+    }
+
+    .card {
+        margin: 4px;
+    }
+
+    .fa-plus {
+        font-size: 1rem;
     }
 }
 
