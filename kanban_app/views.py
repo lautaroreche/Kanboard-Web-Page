@@ -40,8 +40,8 @@ def home(request):
 
 
 @login_required
-def change_status(request, id, direction):
-    task = Task.objects.get(id=id, user=request.user)
+def change_status(request, task_id, direction):
+    task = Task.objects.get(id=task_id, user=request.user)
 
     if direction == "next":
         if task.status == "on_hold":
@@ -58,4 +58,16 @@ def change_status(request, id, direction):
         if task.status == "done":
             task.status = "on_hold"
     task.save()
+    return redirect('home')
+
+
+@login_required
+def edit(request, task_id):
+    return redirect('home')
+
+
+@login_required
+def delete(request, task_id):
+    task = Task.objects.get(id=task_id, user=request.user)
+    task.delete()
     return redirect('home')

@@ -32,7 +32,7 @@ body {
 main {
     display: flex;
     flex-direction: row;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 h1 {
@@ -55,7 +55,7 @@ h2 {
     margin: 0 5px;
     flex-direction: column;
     width: 25%;
-    height: 95%;
+    min-height: 95%;
 }
 
 .to_do-card {
@@ -142,6 +142,7 @@ h2 {
 .title {
     font-size: 1.2rem;
     font-weight: 600;
+    max-width: 85%;
 }
 
 .detail {
@@ -152,4 +153,13 @@ h2 {
     width: 1px;
     background-color: #ffffff33;
     margin: 10px 0;
+}
+
+.superior-card {
+    justify-content: space-between;
+}
+
+.action-buttons a {
+    text-decoration: none;
+    color: var(--dark-color);
 }
