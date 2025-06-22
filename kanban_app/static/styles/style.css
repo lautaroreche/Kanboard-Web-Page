@@ -36,6 +36,7 @@ main {
 }
 
 h1 {
+    margin: 5px;
     background-color: #ddd;
     color: #333;
     width: 100vw;
@@ -50,12 +51,11 @@ h2 {
 
 .column {
     display: flex;
-    gap: 10px;
-    padding: 10px 5px;
+    gap: 5px;
+    margin: 0 5px;
     flex-direction: column;
     width: 25%;
-    height: 93vh;
-    border-right: 1px solid var(--dark-color);
+    height: 95%;
 }
 
 .to_do-card {
@@ -107,26 +107,28 @@ h2 {
 }
 
 .card {
-    margin: 6px;
-    min-height: 50px;
+    margin: 5px;
+    min-height: 60px;
     background-color: var(--light-color);
     border-radius: 10px;
 }
 
 .prev-button, .next-button {
     background-color: #ccc;
-    width: 7.5%;
+    width: 10%;
     height: 100%;
     border-radius: 0 10px 10px 0;
     cursor: pointer;
+    text-decoration: none;
+    color: var(--dark-color)
 }
 
 .card-content {
     display: flex;
     flex-direction: column;
     gap: 5px;
-    padding: 15px;
-    width: 85%;
+    padding: 10px;
+    width: 100%;
 }
 
 .prev-button {
@@ -143,5 +145,11 @@ h2 {
 }
 
 .detail {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+}
+
+.column-divider {
+    width: 1px;
+    background-color: #ffffff33;
+    margin: 10px 0;
 }

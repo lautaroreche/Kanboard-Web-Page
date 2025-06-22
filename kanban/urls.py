@@ -16,9 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kanban_app.views import home
+from kanban_app.views import home, change_status
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name='home'),
+    path('change_status/<int:id>/<str:direction>/', change_status, name='change_status'),
 ]
