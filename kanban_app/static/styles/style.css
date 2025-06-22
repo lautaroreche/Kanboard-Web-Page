@@ -135,6 +135,8 @@ h2 {
     gap: 5px;
     padding: 10px;
     width: 100%;
+    word-wrap: break-word;
+    overflow: scroll;
 }
 
 .title {
