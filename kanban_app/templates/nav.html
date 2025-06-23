@@ -1,0 +1,13 @@
+{% load static %}
+
+
+<nav class="flex-row">
+    <i class="fa-solid fa-bars"></i>
+    <h1>Kanban of {{user.username}}</h1>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        </button>
+    </form>
+</nav>

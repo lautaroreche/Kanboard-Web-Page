@@ -288,6 +288,10 @@ h2 {
     background-color: var(--strong-to-do-color);
 }
 
+button {
+    border: none;
+}
+
 
 @media screen  and (max-width: 890px) {
     .done-column, .on_hold-column-divider {
@@ -297,6 +301,20 @@ h2 {
     .column {
         width: 33.33%;
     }
+}
+
+nav {
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 10px 30px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+
+nav i {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 
