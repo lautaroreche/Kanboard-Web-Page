@@ -3,6 +3,8 @@
 {% block title %}Ragusa - Productos argentinos{% endblock %}
 
 {% block content %}
+    {% include 'nav.html' %}
+    
     <main>
         {% for column in columns %}
             <div class="column {% if column.status == 'done' %}
