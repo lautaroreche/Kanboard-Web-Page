@@ -19,6 +19,12 @@ class Task(models.Model):
         default='to_do'
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    focused = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
+    
+
+    def toggle_focus(self):
+        self.focused = not self.focused
+        self.save()
