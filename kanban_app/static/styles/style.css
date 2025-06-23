@@ -104,6 +104,22 @@ h2 {
     background-color: var(--done-color);
 }
 
+.to_do-focus {
+    box-shadow: 0 0 50px var(--to-do-color);
+}
+
+.wip-focus {
+    box-shadow: 0 0 50px var(--wip-color);
+}
+
+.on_hold-focus {
+    box-shadow: 0 0 50px var(--on-hold-color);
+}
+
+.done-focus {
+    box-shadow: 0 0 50px var(--done-color);
+}
+
 .card {
     margin: 5px;
     min-height: 60px;
@@ -169,13 +185,13 @@ h2 {
     text-decoration: none;
 }
 
-.fa-trash-can {
+.fa-solid {
+    transition: transform 0.3s ease;
     color: var(--dark-color);
 }
 
-.fa-trash-can:hover {
-    color: var(--to-do-color);
-    transition: background-color 0.3s ease;
+.fa-solid:hover {
+    transform: scale(1.1);
 }
 
 .fa-chevron-right, .fa-chevron-left {
@@ -290,6 +306,10 @@ h2 {
 
 button {
     border: none;
+}
+
+.actions-container {
+    gap: 5px;
 }
 
 

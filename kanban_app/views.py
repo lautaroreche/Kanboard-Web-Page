@@ -9,7 +9,7 @@ def get_context(user):
     on_hold_tasks = []
     done_tasks = []
 
-    tasks = Task.objects.filter(user=user)
+    tasks = Task.objects.filter(user=user).order_by('-focused', 'id')
     
     for task in tasks:
         if task.status == 'to_do':
@@ -74,4 +74,11 @@ def create(request):
 def delete(request, task_id):
     task = Task.objects.get(id=task_id, user=request.user)
     task.delete()
+    return redirect('home')
+
+
+@login_required
+def toggle_focus(request, task_id):
+    task = Task.objects.get(id=task_id, user=request.user)
+    task.toggle_focus()
     return redirect('home')
