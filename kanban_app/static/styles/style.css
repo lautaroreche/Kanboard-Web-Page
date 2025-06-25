@@ -236,35 +236,35 @@ h2 {
 }
 
 .login-container {
-    display: flex;
-    flex-direction: column;
     gap: 10px;
-    background-color: var(--light-color);
     padding: 30px;
-    border-radius: 10px;
+    margin: 0 30px;
     width: 100%;
     max-width: 400px;
+    background-color: var(--light-color);
+    border-radius: 10px;
 }
 
 .login-container h2 {
     text-align: center;
     font-size: 1.5rem;
-    color: #333;
+    color: var(--dark-color);
 }
 
 .login-form label {
     display: block;
     margin-bottom: 0.3rem;
+    font-size: 1rem;
     color: var(--dark-color);
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
     margin-bottom: 10px;
-    width: 100%;
     padding: 0.75rem;
+    width: 100%;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--light-color);
     transition: border-color 0.3s, box-shadow 0.3s;
     font-size: 1rem;
 }
