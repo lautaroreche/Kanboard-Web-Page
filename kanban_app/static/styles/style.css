@@ -170,6 +170,11 @@ h2 {
     font-size: 0.9rem;
 }
 
+.creation_date {
+    font-size: 0.7rem;
+    font-style: italic;
+}
+
 .column-divider {
     width: 1px;
     background-color: #ffffff33;
@@ -347,6 +352,10 @@ nav i {
         font-size: 0.8rem;
     }
 
+    .creation_date {
+        font-size: 0.6rem;
+    }
+
     .superior-card {
         flex-direction: column-reverse;
     }
@@ -364,6 +373,10 @@ nav i {
     
     .detail {
         font-size: 0.6rem;
+    }
+
+    .creation_date {
+        font-size: 0.4rem;
     }
 
     h2 {

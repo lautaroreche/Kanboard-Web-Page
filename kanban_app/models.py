@@ -20,6 +20,7 @@ class Task(models.Model):
     )
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     focused = models.BooleanField(default=False)
+    creation_date = models.DateField(auto_now_add=True, editable=False)
 
     def __str__(self):
         return self.title
