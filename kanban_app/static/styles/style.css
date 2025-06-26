@@ -41,10 +41,15 @@ main {
     min-height: 90vh;
 }
 
+h1 {
+    text-align: center;
+}
+
 h2 {
     margin: 5px;
     padding: 5px;
     border-radius: 10px;
+    font-size: 1.3rem;
 }
 
 .column {
@@ -132,7 +137,12 @@ h2 {
 
 .detailed-card {
     margin: 20px;
+    height: 100%;
+    width: 100%;
     min-height: 200px;
+    max-height: 400px;
+    min-width: 200px;
+    max-width: 600px;
 }
 
 .prev-button, .next-button {
@@ -169,11 +179,12 @@ h2 {
 .title {
     font-size: 1.2rem;
     font-weight: 600;
-    width: 85%;
+    width: 100%;
 }
 
 .detail {
     font-size: 0.9rem;
+    width: 100%;;
 }
 
 .creation_date {
@@ -192,7 +203,11 @@ h2 {
     justify-content: space-between;
 }
 
-.superior-card a {
+.actions-container {
+    width: 100%;
+}
+
+.actions-container a {
     text-decoration: none;
 }
 
@@ -320,7 +335,22 @@ button {
 }
 
 .actions-container {
-    gap: 5px;
+    gap: 7px;
+}
+
+nav {
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    padding: 10px 30px;
+    gap: 15px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+}
+
+nav i {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 
@@ -332,24 +362,7 @@ button {
     .column {
         width: 33.33%;
     }
-}
 
-nav {
-    justify-content: space-between;
-    align-items: center;
-    margin: 5px;
-    padding: 10px 30px;
-    background-color: var(--light-color);
-    border-radius: 10px;
-}
-
-nav i {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-
-@media screen  and (max-width: 768px) {
     .title {
         font-size: 1rem;
     }
@@ -360,10 +373,6 @@ nav i {
 
     .creation_date {
         font-size: 0.6rem;
-    }
-
-    .superior-card {
-        flex-direction: column-reverse;
     }
 
     .fa-chevron-right, .fa-chevron-left {
@@ -373,20 +382,20 @@ nav i {
 
 
 @media screen  and (max-width: 600px) {
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+    
     .title {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     
     .detail {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .creation_date {
-        font-size: 0.4rem;
-    }
-
-    h2 {
-        font-size: 1rem;
+        font-size: 0.5rem;
     }
 
     .fa-chevron-right, .fa-chevron-left {
@@ -398,18 +407,15 @@ nav i {
         margin: 0;
     }
 
-    .card {
+    .normal-card {
         margin: 4px;
+    }
+
+    .detailed-card {
+        margin: 10px;
     }
 
     .fa-plus {
         font-size: 1rem;
-    }
-}
-
-
-@media screen  and (max-width: 450px) {
-    .title {
-        font-size: 0.7rem;
     }
 }

@@ -3,13 +3,13 @@
 
 <div class="card detailed-card flex-row {{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}">
     <div class="card-content flex-col">
-        <div class="superior-card flex-row">
-            <p class="title">{{task.title}}</p>
+        <div class="superior-card flex-col">
             <div class="actions-container flex-row">
                 <a href="{% url 'home' %}">
                     <i class="fa-solid fa-xmark"></i>
                 </a>
             </div>
+            <p class="title">{{task.title}}</p>
         </div>
         <hr class="{{task.status}}-hr">
         <p class="creation_date">Created: {{task.creation_date}}</p>
