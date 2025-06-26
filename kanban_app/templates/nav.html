@@ -2,7 +2,9 @@
 
 
 <nav class="flex-row">
-    <i class="fa-solid fa-bars"></i>
+    <a href="{% url 'home' %}">
+        <i class="fa-solid fa-house-user"></i>
+    </a>
     <h1>Kanban of {{user.username}}</h1>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}

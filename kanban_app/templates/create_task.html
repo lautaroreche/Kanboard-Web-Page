@@ -1,9 +1,10 @@
 {% load static %}
 
+
 {% if column.status == "to_do" %}
     <form method="POST" action="{% url 'create' %}" class="card new-task-card to_do-card flex-col">
         {% csrf_token %}
-        <div class="card add-task-card {{task.status}}-card">
+        <div class="card normal-card add-task-card {{task.status}}-card">
             <input type="text" name="title" placeholder="Title" class="title" required>
             <hr class="to_do-hr">
             <input type="text" name="detail" placeholder="Detail" class="detail">

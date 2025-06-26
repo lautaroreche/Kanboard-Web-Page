@@ -1,19 +1,23 @@
 {% load static %}
 
+
 {% for task in column.tasks %}
-    <div class="card flex-row {{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}">
+    <div class="card normal-card flex-row {{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}">
         {% if task.status != "to_do" %}
             <a href="{% url 'change_status' task.id 'prev' %}" class="prev-button flex-center flex-row" title="Change status">
                 <i class="fa-solid fa-chevron-left"></i>
             </a>
         {% endif %}
 
-        <div class="card-content">
+        <div class="card-content flex-col">
             <div class="superior-card flex-row">
                 <p class="title">{{task.title}}</p>
                 <div class="actions-container flex-row">
                     <a href="{% url 'toggle_focus' task.id %}">
-                        <i class="fa-solid fa-bullseye"></i>
+                        <i class="fa-solid fa-sun"></i>
+                    </a>
+                    <a href="{% url 'edit' task.id %}">
+                        <i class="fa-solid fa-pen-to-square"></i>
                     </a>
                     <a href="{% url 'delete' task.id %}">
                         <i class="fa-solid fa-trash-can"></i>

@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}Ragusa - Productos argentinos{% endblock %}
 
 {% block content %}
     {% include 'nav.html' %}
@@ -13,7 +12,7 @@
                 
                 {% include 'create_task.html' %}
                 
-                {% include 'card.html' %}
+                {% include 'normal_card.html' %}
             </div>
             {% if not forloop.last %}
                 <div class="column-divider {% if column.status == 'on_hold' %}

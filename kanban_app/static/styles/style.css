@@ -121,10 +121,18 @@ h2 {
 }
 
 .card {
-    margin: 5px;
-    min-height: 60px;
     background-color: var(--light-color);
     border-radius: 10px;
+}
+
+.normal-card {
+    margin: 5px;
+    min-height: 60px;
+}
+
+.detailed-card {
+    margin: 20px;
+    min-height: 200px;
 }
 
 .prev-button, .next-button {
@@ -151,8 +159,6 @@ h2 {
 }
 
 .card-content {
-    display: flex;
-    flex-direction: column;
     gap: 5px;
     padding: 10px;
     width: 100%;

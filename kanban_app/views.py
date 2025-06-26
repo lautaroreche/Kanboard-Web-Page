@@ -3,7 +3,7 @@ from .models import Task
 from django.contrib.auth.decorators import login_required
 
 
-def get_context(user):
+def get_initial_context(user):
     to_do_tasks = []
     wip_tasks = []
     on_hold_tasks = []
@@ -35,7 +35,7 @@ def get_context(user):
 
 @login_required
 def home(request):
-    context = get_context(request.user)
+    context = get_initial_context(request.user)
     return render(request, 'index.html', context)
 
 
@@ -68,6 +68,14 @@ def create(request):
         detail = request.POST.get("detail")
         Task.objects.create(title=title, detail=detail, status="to_do", user=request.user)
     return redirect("home")
+
+
+@login_required
+def edit(request, task_id):
+    task = Task.objects.get(id=task_id, user=request.user)
+    context = get_initial_context(request.user)
+    context['task'] = task
+    return render(request, 'edit.html', context)
 
 
 @login_required
