@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from kanban_app.views import home, change_status, create, edit, delete, toggle_focus
+from kanban_app.views import home, change_status, create, view, edit, delete, toggle_focus
 from django.contrib.auth import views as auth_views
 
 
@@ -27,6 +27,7 @@ urlpatterns = [
     path('', home, name='home'),
     path('change_status/<int:task_id>/<str:direction>/', change_status, name='change_status'),
     path('create/', create, name='create'),
+    path('view/<int:task_id>', view, name='view'),
     path('edit/<int:task_id>', edit, name='edit'),
     path('delete/<int:task_id>', delete, name='delete'),
     path('toggle_focus/<int:task_id>', toggle_focus, name='toggle_focus'),
