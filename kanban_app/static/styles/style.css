@@ -53,6 +53,11 @@ h2 {
     font-size: 1.3rem;
 }
 
+a {
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
 .column {
     display: flex;
     gap: 5px;
@@ -152,7 +157,6 @@ h2 {
     height: 100%;
     border-radius: 0 10px 10px 0;
     cursor: pointer;
-    text-decoration: none;
     color: var(--dark-color)
 }
 
@@ -175,6 +179,12 @@ h2 {
     width: 100%;
     word-wrap: break-word;
     overflow: scroll;
+}
+
+.card-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .title {
@@ -205,19 +215,15 @@ h2 {
 }
 
 .actions-container {
-    gap: 8px;
+    gap: 9px;
     width: 100%;
-}
-
-.actions-container a {
-    text-decoration: none;
 }
 
 .fa-solid {
     transition: transform 0.3s ease;
     color: var(--dark-color);
     cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 .fa-solid:hover {
@@ -226,38 +232,6 @@ h2 {
 
 .fa-chevron-right, .fa-chevron-left {
     font-size: 1.1rem;
-}
-
-.add-task-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 9px;
-    padding: 4px;
-}
-
-.add-task-button {
-    padding: 5px;
-    height: 25px;
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    background-color: var(--to-do-color);
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.add-task-button:hover {
-    background-color: var(--strong-to-do-color);
-}
-
-.new-task-card input {
-    padding-left: 3px;
-    width: 100%;
-    border: none;
-    background: transparent;
-    outline: none;
 }
 
 .login-container {
@@ -356,9 +330,8 @@ nav {
     border-radius: 10px;
 }
 
-nav i {
+nav .fa-solid {
     font-size: 1.5rem;
-    cursor: pointer;
 }
 
 

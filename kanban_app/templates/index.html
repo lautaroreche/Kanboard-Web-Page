@@ -9,9 +9,7 @@
             <div class="column {% if column.status == 'done' %}
             done-column {% endif %}">
                 <h2 class="{{column.status}}-background flex-center">{{column.name}}</h2>
-                
-                {% include 'create_task.html' %}
-                
+                                
                 {% include 'normal_card.html' %}
             </div>
             {% if not forloop.last %}
