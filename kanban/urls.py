@@ -27,8 +27,9 @@ urlpatterns = [
     path('', home, name='home'),
     path('change_status/<int:task_id>/<str:direction>/', change_status, name='change_status'),
     path('create/', create, name='create'),
-    path('view/<int:task_id>', view, name='view'),
-    path('edit/<int:task_id>', edit, name='edit'),
-    path('delete/<int:task_id>', delete, name='delete'),
-    path('toggle_focus/<int:task_id>', toggle_focus, name='toggle_focus'),
+    path('view/', view, name='view'),
+    path('view/<int:task_id>/', view, name='view'),
+    path('edit/<int:task_id>/', edit, name='edit'),
+    path('delete/<int:task_id>/', delete, name='delete'),
+    path('toggle_focus/<int:task_id>/', toggle_focus, name='toggle_focus'),
 ]

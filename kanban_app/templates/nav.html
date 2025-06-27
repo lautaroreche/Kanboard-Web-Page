@@ -2,13 +2,15 @@
 
 
 <nav class="flex-row">
-    <a href="{% url 'home' %}">
-        <i class="fa-solid fa-house-user"></i>
+    <a href="{% url 'view' %}" title="Create task">
+        <i class="fa-solid fa-plus"></i>
     </a>
-    <h1>Kanban of {{user.username}}</h1>
+    <a href="{% url 'home' %}" title="Home">
+        <h1>Kanban of {{user.username}}</h1>
+    </a>
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
-        <button type="submit">
+        <button type="submit" title="Logout">
             <i class="fa-solid fa-arrow-right-from-bracket"></i>
         </button>
     </form>

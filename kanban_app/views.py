@@ -64,18 +64,19 @@ def change_status(request, task_id, direction):
 @login_required
 def create(request):
     if request.method == "POST":
-        title = request.POST.get("title")
-        detail = request.POST.get("detail")
+        title = request.POST.get("title").strip()
+        detail = request.POST.get("detail").strip()
         Task.objects.create(title=title, detail=detail, status="to_do", user=request.user)
     return redirect("home")
 
 
 @login_required
-def view(request, task_id):
-    task = Task.objects.get(id=task_id, user=request.user)
-    context = {
-        'task': task,
-    }
+def view(request, task_id=None):
+    context = {}
+    task = None
+    if task_id:
+        task = Task.objects.get(id=task_id, user=request.user)
+    context['task'] = task
     return render(request, 'view.html', context)
 
 
