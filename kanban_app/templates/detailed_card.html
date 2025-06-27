@@ -3,16 +3,41 @@
 
 <div class="card detailed-card flex-row {{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}">
     <div class="card-content flex-col">
-        <div class="superior-card flex-col">
-            <div class="actions-container flex-row">
-                <a href="{% url 'home' %}">
-                    <i class="fa-solid fa-xmark"></i>
-                </a>
+        <form method="POST" action="{% url 'edit' task.id %}">
+            {% csrf_token %}
+            <div class="superior-card flex-col">
+                <div class="actions-container flex-row">
+                    <a href="{% url 'home' %}">
+                        <i class="fa-solid fa-xmark"></i>
+                    </a>
+                    <button type="submit">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                    </button>
+                </div>
+                <textarea name="title" placeholder="Title" class="title auto-resize" maxlength="150" required>{{task.title}}</textarea>
             </div>
-            <p class="title">{{task.title}}</p>
-        </div>
-        <hr class="{{task.status}}-hr">
-        <p class="creation_date">Created: {{task.creation_date}}</p>
-        <p class="detail">{{task.detail}}</p>
+            <hr class="{{task.status}}-hr">
+            <p class="creation_date">Created: {{task.creation_date}}</p>
+            <textarea name="detail" placeholder="Detail" class="detail auto-resize" maxlength="150">{{task.detail}}</textarea>
+        </form>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const textareas = document.querySelectorAll('.auto-resize');
+    
+        textareas.forEach(textarea => {
+            autoResize(textarea);
+    
+            textarea.addEventListener('input', () => autoResize(textarea));
+        });
+    
+        function autoResize(el) {
+            el.style.height = 'auto';
+            el.style.height = Math.min(el.scrollHeight, 300) + 'px';
+        }
+    });
+</script>
+    

@@ -13,6 +13,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
 }
 
 .flex-center {
@@ -136,9 +137,9 @@ h2 {
 }
 
 .detailed-card {
-    margin: 20px;
+    margin: 30px;
     height: 100%;
-    width: 100%;
+    width: calc(100% - 60px);
     min-height: 200px;
     max-height: 400px;
     min-width: 200px;
@@ -204,6 +205,7 @@ h2 {
 }
 
 .actions-container {
+    gap: 8px;
     width: 100%;
 }
 
@@ -214,6 +216,8 @@ h2 {
 .fa-solid {
     transition: transform 0.3s ease;
     color: var(--dark-color);
+    cursor: pointer;
+    font-size: 1.1rem;
 }
 
 .fa-solid:hover {
@@ -246,11 +250,6 @@ h2 {
 
 .add-task-button:hover {
     background-color: var(--strong-to-do-color);
-}
-
-.fa-plus {
-    font-size: 1.1rem;
-    color: var(--dark-color);
 }
 
 .new-task-card input {
@@ -334,8 +333,17 @@ button {
     border: none;
 }
 
-.actions-container {
-    gap: 7px;
+textarea {
+    background-color: transparent;
+    border: none;
+    resize: none;
+    outline: none;
+    box-shadow: none;
+    max-height: 300px;
+    overflow-y: auto;
+    min-height: 1.5em;
+    line-height: 1.5;
+    
 }
 
 nav {
@@ -385,18 +393,6 @@ nav i {
     h1, h2 {
         font-size: 1.2rem;
     }
-    
-    .title {
-        font-size: 0.9rem;
-    }
-    
-    .detail {
-        font-size: 0.7rem;
-    }
-
-    .creation_date {
-        font-size: 0.5rem;
-    }
 
     .fa-chevron-right, .fa-chevron-left {
         font-size: 0.6rem;
@@ -409,13 +405,5 @@ nav i {
 
     .normal-card {
         margin: 4px;
-    }
-
-    .detailed-card {
-        margin: 10px;
-    }
-
-    .fa-plus {
-        font-size: 1rem;
     }
 }

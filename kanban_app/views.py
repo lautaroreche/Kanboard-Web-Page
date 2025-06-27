@@ -71,11 +71,24 @@ def create(request):
 
 
 @login_required
+def view(request, task_id):
+    task = Task.objects.get(id=task_id, user=request.user)
+    context = {
+        'task': task,
+    }
+    return render(request, 'view.html', context)
+
+
+@login_required
 def edit(request, task_id):
     task = Task.objects.get(id=task_id, user=request.user)
-    context = get_initial_context(request.user)
-    context['task'] = task
-    return render(request, 'edit.html', context)
+    if request.method == "POST":
+        title = request.POST.get("title", "").strip()
+        detail = request.POST.get("detail", "").strip()
+        task.title = title
+        task.detail = detail
+        task.save()
+        return redirect('home')
 
 
 @login_required
