@@ -307,17 +307,26 @@ button {
     border: none;
 }
 
-textarea {
+select {
+    padding: 0 2px 0 0;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+select, textarea {
     background-color: transparent;
     border: none;
-    resize: none;
     outline: none;
     box-shadow: none;
+}
+
+textarea {
+    resize: none;
     max-height: 300px;
     overflow-y: auto;
     min-height: 1.5em;
     line-height: 1.5;
-    
 }
 
 nav {

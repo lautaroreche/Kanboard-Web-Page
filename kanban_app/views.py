@@ -66,7 +66,8 @@ def create(request):
     if request.method == "POST":
         title = request.POST.get("title").strip()
         detail = request.POST.get("detail").strip()
-        Task.objects.create(title=title, detail=detail, status="to_do", user=request.user)
+        status = request.POST.get("status").strip()
+        Task.objects.create(title=title, detail=detail, status=status, user=request.user)
     return redirect("home")
 
 
