@@ -1,6 +1,11 @@
 {% load static %}
 
 
+{% if task %}
+    <h2 class="detailed-card-title">Modify</h2>
+{% else %}
+    <h2 class="detailed-card-title">Create</h2>
+{% endif %}
 <div class="card detailed-card flex-row {% if task %}{{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}{% else %} to_do-card {% endif %}">
     <div class="card-content flex-col">
         <form method="POST" action="{% if task %}{% url 'edit' task.id %}{% else %}{% url 'create' %}{% endif %}">

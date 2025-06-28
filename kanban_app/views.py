@@ -87,8 +87,10 @@ def edit(request, task_id):
     if request.method == "POST":
         title = request.POST.get("title", "").strip()
         detail = request.POST.get("detail", "").strip()
+        status = request.POST.get("status", "").strip()
         task.title = title
         task.detail = detail
+        task.status = status
         task.save()
         return redirect('home')
 

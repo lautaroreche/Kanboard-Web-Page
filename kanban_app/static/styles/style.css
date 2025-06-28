@@ -51,6 +51,12 @@ h2 {
     padding: 5px;
     border-radius: 10px;
     font-size: 1.3rem;
+    text-align: center;
+}
+
+.detailed-card-title {
+    font-size: 2rem;
+    color: var(--light-color);
 }
 
 a {
@@ -142,7 +148,7 @@ a {
 }
 
 .detailed-card {
-    margin: 30px;
+    margin: 15px 30px;
     height: 100%;
     width: calc(100% - 60px);
     min-height: 200px;
