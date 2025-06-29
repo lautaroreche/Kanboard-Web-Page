@@ -145,6 +145,7 @@ a {
 .normal-card {
     margin: 5px;
     min-height: 60px;
+    max-height: 250px;
 }
 
 .detailed-card {
@@ -201,7 +202,7 @@ a {
 
 .detail {
     font-size: 0.9rem;
-    width: 100%;;
+    width: 100%;
 }
 
 .creation_date {
@@ -256,10 +257,14 @@ a {
     color: var(--dark-color);
 }
 
+.login-form {
+    margin-top: 10px;
+}
+
 .login-form label {
     display: block;
-    margin-bottom: 0.3rem;
-    font-size: 1rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.1rem;
     color: var(--dark-color);
 }
 
