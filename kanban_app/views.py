@@ -43,21 +43,17 @@ def home(request):
 def change_status(request, task_id, direction):
     task = Task.objects.get(id=task_id, user=request.user)
 
-    if direction == "next":
-        if task.status == "on_hold":
-            task.status = "done"
-        if task.status == "wip":
-            task.status = "on_hold"
-        if task.status == "to_do":
-            task.status = "wip"
-    if direction == "prev":
-        if task.status == "wip":
-            task.status = "to_do"
-        if task.status == "on_hold":
-            task.status = "wip"
-        if task.status == "done":
-            task.status = "on_hold"
-    task.save()
+    status_flow = ["to_do", "wip", "on_hold", "done"]
+
+    try:
+        current_index = status_flow.index(task.status)
+        if direction == "next" and current_index < len(status_flow) - 1:
+            task.status = status_flow[current_index + 1]
+        elif direction == "prev" and current_index > 0:
+            task.status = status_flow[current_index - 1]
+        task.save()
+    except ValueError:
+        pass
     return redirect('home')
 
 

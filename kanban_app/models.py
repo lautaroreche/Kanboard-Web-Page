@@ -12,7 +12,7 @@ class Task(models.Model):
 
     id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=150)
-    detail = models.TextField(max_length=150, null=True, blank=True)
+    detail = models.TextField(max_length=400, null=True, blank=True)
     status = models.CharField(
         max_length=50,
         choices=STATUS_CHOICES,
