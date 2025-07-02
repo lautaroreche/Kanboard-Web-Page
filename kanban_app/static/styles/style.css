@@ -203,6 +203,7 @@ a {
 .detail {
     font-size: 0.9rem;
     width: 100%;
+    white-space: pre-line;
 }
 
 .creation_date {
