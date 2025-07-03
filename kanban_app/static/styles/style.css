@@ -1,9 +1,13 @@
 :root {
     --background-color: #393d42;
+    --soft-to-do-color: #e6aaaa;
     --to-do-color: #cc1616;
     --strong-to-do-color: #b61313;
+    --soft-wip-color: #f5e3b0;
     --wip-color: #ffb300;
+    --soft-on-hold-color: #c0d7ea;
     --on-hold-color: #0086ed;
+    --soft-done-color: #bcd6c0;
     --done-color: #317f43;
     --dark-color: #111;
     --light-color: #eee;
@@ -105,16 +109,32 @@ a {
     border: 1px solid var(--done-color);
 }
 
+.soft-to_do-background {
+    background-color: var(--soft-to-do-color);
+}
+
 .to_do-background {
     background-color: var(--to-do-color);
+}
+
+.soft-wip-background {
+    background-color: var(--soft-wip-color);
 }
 
 .wip-background {
     background-color: var(--wip-color);
 }
 
+.soft-on_hold-background {
+    background-color: var(--soft-on-hold-color);
+}
+
 .on_hold-background {
     background-color: var(--on-hold-color);
+}
+
+.soft-done-background {
+    background-color: var(--soft-done-color);
 }
 
 .done-background {
@@ -159,12 +179,11 @@ a {
 }
 
 .prev-button, .next-button {
-    background-color: #ccc;
     width: 10%;
     height: 100%;
     border-radius: 0 10px 10px 0;
     cursor: pointer;
-    color: var(--dark-color)
+    color: var(--dark-color);
 }
 
 .prev-button {
@@ -173,11 +192,6 @@ a {
 
 .next-button {
     border-radius: 0 8px 8px 0;
-}
-
-.prev-button:hover, .next-button:hover {
-    background-color: #bbb;
-    transition: background-color 0.3s ease;
 }
 
 .card-content {

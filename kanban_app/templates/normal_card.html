@@ -4,7 +4,7 @@
 {% for task in column.tasks %}
     <div class="card normal-card flex-row {{task.status}}-card {% if task.focused %} {{task.status}}-focus {% endif %}">
         {% if task.status != "to_do" %}
-            <a href="{% url 'change_status' task.id 'prev' %}" class="prev-button flex-center flex-row" title="Move status">
+            <a href="{% url 'change_status' task.id 'prev' %}" class="prev-button flex-center flex-row {% if task.status == 'to_do' %} soft-to_do-background {% elif task.status == 'wip' %} soft-wip-background {% elif task.status == 'on_hold' %} soft-on_hold-background {% elif task.status == 'done' %} soft-done-background {% endif %}" title="Move status">
                 <i class="fa-solid fa-chevron-left"></i>
             </a>
         {% endif %}
@@ -30,7 +30,7 @@
         </div>
 
         {% if task.status != "done" %}
-            <a href="{% url 'change_status' task.id 'next' %}" class="next-button flex-center flex-row" title="Move status">
+            <a href="{% url 'change_status' task.id 'next' %}" class="next-button flex-center flex-row {% if task.status == 'to_do' %} soft-to_do-background {% elif task.status == 'wip' %} soft-wip-background {% elif task.status == 'on_hold' %} soft-on_hold-background {% elif task.status == 'done' %} soft-done-background {% endif %}" title="Move status">
                 <i class="fa-solid fa-chevron-right"></i>
             </a>
         {% endif %}
