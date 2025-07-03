@@ -22,6 +22,7 @@ class Task(models.Model):
     focused = models.BooleanField(default=False)
     creation_date = models.DateField(auto_now_add=True, editable=False)
 
+
     def __str__(self):
         return self.title
     
@@ -29,3 +30,9 @@ class Task(models.Model):
     def toggle_focus(self):
         self.focused = not self.focused
         self.save()
+
+
+    class Meta:
+        verbose_name = "Task"
+        verbose_name_plural = "Tasks"
+        ordering = ['status', '-creation_date']
