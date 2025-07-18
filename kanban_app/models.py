@@ -11,10 +11,10 @@ class Task(models.Model):
     ]
 
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=150)
-    detail = models.TextField(max_length=400, null=True, blank=True)
+    title = models.CharField(max_length=200)
+    detail = models.TextField(max_length=600, null=True, blank=True)
     status = models.CharField(
-        max_length=50,
+        max_length=100,
         choices=STATUS_CHOICES,
         default='to_do'
     )

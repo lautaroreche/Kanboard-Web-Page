@@ -29,13 +29,13 @@
                         <option value="done" {% if task and task.status == 'done' %} selected {% endif %}>Done</option>
                     </select>
                 </div>
-                <textarea name="title" placeholder="Title" class="title auto-resize" maxlength="150" required>{{task.title}}</textarea>
+                <textarea name="title" placeholder="Title" class="title auto-resize" maxlength="200" required>{{task.title}}</textarea>
             </div>
             <hr class="{% if task %}{{task.status}}-hr{% else %}to_do-hr{% endif %}">
             {% if task %}
                 <p class="creation_date">
             {% endif %}
-            <textarea name="detail" placeholder="Detail" class="detail auto-resize" maxlength="400">{{task.detail}}</textarea>
+            <textarea name="detail" placeholder="Detail" class="detail auto-resize" maxlength="600">{{task.detail}}</textarea>
         </form>
     </div>
 </div>

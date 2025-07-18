@@ -1,14 +1,14 @@
 :root {
-    --background-color: #393d42;
+    --background-color: #444444;
     --soft-to-do-color: #e6aaaa;
     --to-do-color: #cc1616;
-    --strong-to-do-color: #b61313;
     --soft-wip-color: #f5e3b0;
     --wip-color: #ffb300;
     --soft-on-hold-color: #c0d7ea;
     --on-hold-color: #0086ed;
     --soft-done-color: #bcd6c0;
     --done-color: #317f43;
+    --strong-done-color: #236733;
     --dark-color: #111;
     --light-color: #eee;
 }
@@ -78,19 +78,19 @@ a {
 }
 
 .to_do-card {
-    border: 2px solid var(--to-do-color);
+    border: 1px solid var(--to-do-color);
 }
 
 .wip-card {
-    border: 2px solid var(--wip-color);
+    border: 1px solid var(--wip-color);
 }
 
 .on_hold-card {
-    border: 2px solid var(--on-hold-color);
+    border: 1px solid var(--on-hold-color);
 }
 
 .done-card {
-    border: 2px solid var(--done-color);
+    border: 1px solid var(--done-color);
 }
 
 .to_do-hr {
@@ -181,7 +181,6 @@ a {
 .prev-button, .next-button {
     width: 10%;
     height: 100%;
-    border-radius: 0 10px 10px 0;
     cursor: pointer;
     color: var(--dark-color);
 }
@@ -197,8 +196,8 @@ a {
 .card-content {
     gap: 5px;
     padding: 10px;
+    max-width: 90%;
     width: 100%;
-    word-wrap: break-word;
 }
 
 .card-content form {
@@ -211,6 +210,7 @@ a {
     font-size: 1.2rem;
     font-weight: 600;
     width: 100%;
+    overflow-y: scroll;
 }
 
 .detail {
@@ -221,7 +221,7 @@ a {
 }
 
 .creation_date {
-    font-size: 0.7rem;
+    font-size: 0.6rem;
     font-style: italic;
 }
 
@@ -263,6 +263,7 @@ a {
     width: 100%;
     max-width: 400px;
     background-color: var(--light-color);
+    border: 3px solid var(--to-do-color);
     border-radius: 10px;
 }
 
@@ -289,15 +290,14 @@ a {
     padding: 0.75rem;
     width: 100%;
     border-radius: 10px;
-    border: 1px solid #aaa;
+    border: 2px solid var(--wip-color);
     transition: border-color 0.3s, box-shadow 0.3s;
     font-size: 1rem;
 }
 
 .login-form input[type="text"]:focus,
 .login-form input[type="password"]:focus {
-    border-color: var(--to-do-color);
-    box-shadow: 0 0 0 1px var(--to-do-color);
+    box-shadow: 0 0 0 1px var(--wip-color);
     outline: none;
 }
 
@@ -315,7 +315,7 @@ a {
 .login-form button {
     width: 100%;
     padding: 0.75rem;
-    background-color: var(--to-do-color);
+    background-color: var(--done-color);
     color: white;
     border: none;
     border-radius: 10px;
@@ -326,7 +326,7 @@ a {
 }
 
 .login-form button:hover {
-    background-color: var(--strong-to-do-color);
+    background-color: var(--strong-done-color);
 }
 
 button {
@@ -387,10 +387,6 @@ nav .fa-solid {
         font-size: 0.8rem;
     }
 
-    .creation_date {
-        font-size: 0.6rem;
-    }
-
     .fa-chevron-right, .fa-chevron-left {
         font-size: 0.9rem;
     }
@@ -403,7 +399,7 @@ nav .fa-solid {
     }
 
     .fa-chevron-right, .fa-chevron-left {
-        font-size: 0.6rem;
+        font-size: 0.7rem;
     }
 
     .column {
@@ -413,5 +409,26 @@ nav .fa-solid {
 
     .normal-card {
         margin: 4px;
+    }
+
+    .card-content {
+        gap: 4px;
+        padding: 5px;
+    }
+
+    .superior-card {
+        gap: 5px;
+    }
+
+    .title {
+        font-size: 0.7rem;
+    }
+
+    .detail {
+        font-size: 0.6rem;
+    }
+    
+    .fa-solid {
+        font-size: 1.1rem;
     }
 }
