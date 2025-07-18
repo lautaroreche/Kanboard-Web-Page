@@ -398,10 +398,6 @@ nav .fa-solid {
         font-size: 1.2rem;
     }
 
-    .fa-chevron-right, .fa-chevron-left {
-        font-size: 0.5rem;
-    }
-
     .column {
         gap: 2px;
         margin: 0;
@@ -430,5 +426,9 @@ nav .fa-solid {
     
     .fa-solid {
         font-size: 1.1rem;
+    }
+
+    .fa-chevron-right, .fa-chevron-left {
+        font-size: 0.5rem;
     }
 }
