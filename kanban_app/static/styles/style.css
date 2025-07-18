@@ -210,6 +210,7 @@ a {
     font-size: 1.2rem;
     font-weight: 600;
     width: 100%;
+    word-break: break-word;
     overflow-y: scroll;
 }
 
@@ -217,6 +218,7 @@ a {
     font-size: 0.9rem;
     width: 100%;
     white-space: pre-line;
+    word-break: break-word;
     overflow-y: scroll;
 }
 
@@ -408,8 +410,8 @@ nav .fa-solid {
     }
 
     .card-content {
-        gap: 4px;
-        padding: 5px;
+        gap: 5px;
+        padding: 6px;
     }
 
     .superior-card {
