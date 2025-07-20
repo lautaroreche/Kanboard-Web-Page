@@ -222,11 +222,6 @@ a {
     overflow-y: scroll;
 }
 
-.creation_date {
-    font-size: 0.6rem;
-    font-style: italic;
-}
-
 .column-divider {
     width: 1px;
     background-color: #ffffff33;
