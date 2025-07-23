@@ -173,9 +173,10 @@ a {
     height: 100%;
     width: calc(100% - 60px);
     min-height: 200px;
-    max-height: 400px;
+    max-height: 500px;
     min-width: 200px;
     max-width: 600px;
+    overflow-y: auto;
 }
 
 .prev-button, .next-button {
@@ -198,28 +199,36 @@ a {
     padding: 10px;
     max-width: 90%;
     width: 100%;
+    overflow-y: auto;
 }
 
 .card-content form {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    max-height: 100%;
+    height: 100%;
+    overflow-y: auto;
 }
 
 .title {
     font-size: 1.2rem;
     font-weight: 600;
     width: 100%;
+    height: auto;
+    max-height: 200px;
     word-break: break-word;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .detail {
     font-size: 0.9rem;
     width: 100%;
+    height: auto;
+    max-height: 200px;
     white-space: pre-line;
     word-break: break-word;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .column-divider {
@@ -346,9 +355,7 @@ select, textarea {
 
 textarea {
     resize: none;
-    max-height: 300px;
     overflow-y: auto;
-    min-height: 1.5em;
     line-height: 1.5;
 }
 
