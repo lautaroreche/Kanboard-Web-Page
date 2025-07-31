@@ -9,7 +9,7 @@ def get_initial_context(user):
     on_hold_tasks = []
     done_tasks = []
 
-    tasks = Task.objects.filter(user=user).order_by('-focused', 'id')
+    tasks = Task.objects.filter(user=user).order_by('id')
     
     for task in tasks:
         if task.status == 'to_do':
@@ -62,31 +62,20 @@ def create(request):
     if request.method == "POST":
         title = request.POST.get("title").strip()
         detail = request.POST.get("detail").strip()
+        priority = request.POST.get("priority").strip()
         status = request.POST.get("status").strip()
-        Task.objects.create(title=title, detail=detail, status=status, user=request.user)
+        Task.objects.create(title=title, detail=detail, priority=priority, status=status, user=request.user)
     return redirect("home")
-
-
-@login_required
-def view(request, task_id=None):
-    context = {}
-    task = None
-    if task_id:
-        task = Task.objects.get(id=task_id, user=request.user)
-    context['task'] = task
-    return render(request, 'view.html', context)
 
 
 @login_required
 def edit(request, task_id):
     task = Task.objects.get(id=task_id, user=request.user)
     if request.method == "POST":
-        title = request.POST.get("title", "").strip()
-        detail = request.POST.get("detail", "").strip()
-        status = request.POST.get("status", "").strip()
-        task.title = title
-        task.detail = detail
-        task.status = status
+        task.title = request.POST.get("title", "").strip()
+        task.detail = request.POST.get("detail", "").strip()
+        task.priority = request.POST.get("priority", "").strip()
+        task.status = request.POST.get("status", "").strip()
         task.save()
         return redirect('home')
 
@@ -95,11 +84,4 @@ def edit(request, task_id):
 def delete(request, task_id):
     task = Task.objects.get(id=task_id, user=request.user)
     task.delete()
-    return redirect('home')
-
-
-@login_required
-def toggle_focus(request, task_id):
-    task = Task.objects.get(id=task_id, user=request.user)
-    task.toggle_focus()
     return redirect('home')
