@@ -1,0 +1,31 @@
+{% load static %}
+{% load custom_filters %}
+
+
+{% for task in column.tasks %}
+    <div class="rounded-sm shadow-md m-1 min-h-16 flex flex-col gap-1 p-3 overflow-y-auto border-solid border-l-4 bg-white {% if task.status == 'to_do' %}border-l-[#ff5630]{% elif task.status == 'wip' %}border-l-[#ffab00]{% elif task.status == 'on_hold' %}border-l-[#0052cc]{% elif task.status == 'done' %}border-l-[#36b376]{% else %}border-l-neutral-300{% endif %}">
+        <div class="flex justify-between">
+            <div class="flex gap-2 items-center">
+                <i class="fa-solid fa-pen-to-square cursor-pointer md:text-xl" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-detail="{{ task.detail|escapejs }}" data-task-priority="{{ task.priority }}" data-task-status="{{ task.status }}" onclick="fillTaskForm(this)"></i>
+                <button onclick="openDeletePanel({{task.id}})" title="Delete task">
+                    <i class="fa-solid fa-trash-can cursor-pointer md:text-xl"></i>
+                </button>
+                {% if task.status != "to_do" %}
+                    <a href="{% url 'change_status' task.id 'prev' %}" title="Move status">
+                        <i class="fa-solid fa-chevron-left cursor-pointer md:text-xl"></i>
+                    </a>
+                {% endif %}
+                {% if task.status != "done" %}
+                    <a href="{% url 'change_status' task.id 'next' %}" title="Move status">
+                        <i class="fa-solid fa-chevron-right cursor-pointer md:text-xl"></i>
+                    </a>
+                {% endif %}
+            </div>
+            <img src="{% static 'images/'|add:task.priority|add:'_priority.webp' %}" alt="{{task.priority|title}} priority" class="size-6">
+        </div>
+        <p class="text-sm">{{task.get_days_left}}</p>
+        <p class="text-xl font-semibold w-full break-words overflow-y-auto">{{task.title}}</p>
+        <hr class="border-solid border-1 {% if task.status == 'to_do' %}border-[#ff5630]{% elif task.status == 'wip' %}border-[#ffab00]{% elif task.status == 'on_hold' %}border-[#0052cc]{% elif task.status == 'done' %}border-[#36b376]{% else %}border-neutral-300{% endif %}">
+        <p class="w-full max-h-24 md:max-h-40 overflow-y-auto text-gray-800 text-sm {% if task.detail|is_url_like %}break-all{% else %}break-words{% endif %}">{{task.detail}}</p>
+    </div>
+{% endfor %}
