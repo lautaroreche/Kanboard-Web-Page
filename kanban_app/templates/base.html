@@ -66,19 +66,25 @@
     </script>
     <script>
         const deletePanel = document.getElementById('delete-confirmation-panel');
-        const confirmDeleteLink = document.getElementById('confirm-delete-link');
+        const deleteForm = document.getElementById('delete-task-form');
         const cancelDeleteBtn = document.getElementById('cancel-delete');
+        const closeBtn2 = document.getElementById('close-delete-form');
     
         function openDeletePanel(taskId) {
             deletePanel.classList.remove('translate-x-full');
             deletePanel.classList.add('translate-x-0');
-    
-            confirmDeleteLink.href = `/delete/${taskId}/`;
+            deleteForm.action = `/delete/${taskId}/`;
         }
     
         cancelDeleteBtn.addEventListener('click', () => {
+            deletePanel.classList.remove('translate-x-0');
             deletePanel.classList.add('translate-x-full');
         });
-    </script>
+    
+        closeBtn2.addEventListener('click', () => {
+            deletePanel.classList.remove('translate-x-0');
+            deletePanel.classList.add('translate-x-full');
+        });
+    </script>    
 </body>
 </html>

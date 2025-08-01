@@ -70,18 +70,19 @@ def create(request):
 
 @login_required
 def edit(request, task_id):
-    task = Task.objects.get(id=task_id, user=request.user)
     if request.method == "POST":
+        task = Task.objects.get(id=task_id, user=request.user)
         task.title = request.POST.get("title", "").strip()
         task.detail = request.POST.get("detail", "").strip()
         task.priority = request.POST.get("priority", "").strip()
         task.status = request.POST.get("status", "").strip()
         task.save()
-        return redirect('home')
+    return redirect('home')
 
 
 @login_required
 def delete(request, task_id):
-    task = Task.objects.get(id=task_id, user=request.user)
-    task.delete()
+    if request.method == "POST":
+        task = Task.objects.get(id=task_id, user=request.user)
+        task.delete()
     return redirect('home')
