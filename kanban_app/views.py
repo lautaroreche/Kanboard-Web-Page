@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Task
 from django.contrib.auth.decorators import login_required
+from django.db.models import Case, When, IntegerField
+
 
 
 def get_initial_context(user):
@@ -9,7 +11,15 @@ def get_initial_context(user):
     on_hold_tasks = []
     done_tasks = []
 
-    tasks = Task.objects.filter(user=user).order_by('id')
+    tasks = Task.objects.filter(user=user).annotate(
+        priority_order=Case(
+            When(priority='high', then=0),
+            When(priority='medium', then=1),
+            When(priority='low', then=2),
+            default=3,
+            output_field=IntegerField()
+        )
+    ).order_by('priority_order', 'id')
     
     for task in tasks:
         if task.status == 'to_do':
@@ -40,20 +50,10 @@ def home(request):
 
 
 @login_required
-def change_status(request, task_id, direction):
+def modify_status(request, task_id, new_status):
     task = Task.objects.get(id=task_id, user=request.user)
-
-    status_flow = ["to_do", "wip", "on_hold", "done"]
-
-    try:
-        current_index = status_flow.index(task.status)
-        if direction == "next" and current_index < len(status_flow) - 1:
-            task.status = status_flow[current_index + 1]
-        elif direction == "prev" and current_index > 0:
-            task.status = status_flow[current_index - 1]
-        task.save()
-    except ValueError:
-        pass
+    task.status = new_status
+    task.save()
     return redirect('home')
 
 

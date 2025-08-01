@@ -5,7 +5,7 @@
     {% include 'header.html' %}
     <main class="flex flex-col md:flex-row gap-4 mt-16 p-4 overflow-y-auto">
         {% for column in columns %}
-            <div class="flex flex-col gap-2 flex-1 bg-neutral-50 rounded-sm">
+            <div id="{{column.status}}-column" class="task-column flex flex-col gap-2 flex-1 bg-neutral-50 rounded-sm">
                 <div class="m-1 flex items-center gap-2 px-2 py-1 rounded-sm shadow-md bg-white">
                     <div class="size-2 rounded-full {% if column.status == 'to_do' %}bg-[#ff5630]{% elif column.status == 'wip' %}bg-[#ffab00]{% elif column.status == 'on_hold' %}bg-[#0052cc]{% elif column.status == 'done' %}bg-[#36b376]{% else %}bg-neutral-300{% endif %}"></div>
                     <h2 class="text-lg font-semibold">{{column.name}}</h2>
