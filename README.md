@@ -1,7 +1,7 @@
 # Kanban board 🌐  
 
 ## Description ℹ️
-This repository contains the code for a **kanban board, developed for personal use, which is a web page built with Python, Django, PostgreSQL, HTML and CSS**.
+This repository contains the code for a **kanban board, developed for personal use, which is a web page built with Python, Django, PostgreSQL, HTML and Tailwind CSS**.
 
 ## Features ✨  
 - Clean and modern design.  
