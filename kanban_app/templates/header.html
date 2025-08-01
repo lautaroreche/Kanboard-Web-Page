@@ -8,13 +8,13 @@
             <h1 class="text-xl font-semibold">Kanboard</h1>
         </a>
         <div class="flex gap-2">
-            <button id="open-task-form" class="flex items-center gap-1 px-3 py-2 h-8 bg-[#ff5630] text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Create task button" title="Create task button">
+            <button id="open-task-form" class="flex items-center gap-1 px-3 py-2 h-8 bg-[#ff5630] hover:bg-red-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Create task button" title="Create task button">
                 <i class="fa-solid fa-plus"></i>
                 <span class="hidden md:inline">Create task</span>
             </button>
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button type="submit" title="Logout button" class="flex items-center gap-1 px-3 py-2 h-8 bg-gray-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Logout button">
+                <button type="submit" title="Logout button" class="flex items-center gap-1 px-3 py-2 h-8 bg-gray-500 hover:bg-gray-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Logout button">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <span class="hidden md:inline">Logout</span>
                 </button>
