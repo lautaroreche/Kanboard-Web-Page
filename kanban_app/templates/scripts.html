@@ -1,0 +1,106 @@
+<script>
+    const openBtn = document.getElementById('open-task-form');
+    const closeBtn = document.getElementById('close-task-form');
+    const panel = document.getElementById('task-form-panel');
+
+    openBtn.addEventListener('click', () => {
+        panel.classList.remove('translate-x-full');
+        panel.classList.add('translate-x-0');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        panel.classList.add('translate-x-full');
+    });
+</script>
+
+<script>
+    function fillTaskForm(el) {
+        const panel = document.getElementById('task-form-panel');
+        const form = document.getElementById('task-form');
+
+        panel.classList.remove('translate-x-full');
+        panel.classList.add('translate-x-0');
+
+        const taskId = el.dataset.taskId;
+        const title = el.dataset.taskTitle;
+        const detail = el.dataset.taskDetail;
+        const priority = el.dataset.taskPriority;
+        const status = el.dataset.taskStatus;
+
+        form.action = `/edit/${taskId}/`;
+        document.querySelector('#task-id').value = taskId;
+        form.title.value = title;
+        try {
+            form.detail.value = JSON.parse('"' + detail.replace(/"/g, '\\"') + '"');
+        } catch (e) {
+            form.detail.value = detail;
+        }
+        form.priority.value = priority;
+        form.status.value = status;
+
+        const button = form.querySelector('button[type="submit"]');
+        button.textContent = 'Save Task';
+
+        document.querySelector('#task-form-panel h2').textContent = 'Edit Task';
+    }
+</script>
+
+<script>
+    const deletePanel = document.getElementById('delete-confirmation-panel');
+    const deleteForm = document.getElementById('delete-task-form');
+    const cancelDeleteBtn = document.getElementById('cancel-delete');
+    const closeBtn2 = document.getElementById('close-delete-form');
+
+    function openDeletePanel(taskId) {
+        deletePanel.classList.remove('translate-x-full');
+        deletePanel.classList.add('translate-x-0');
+        deleteForm.action = `/delete/${taskId}/`;
+    }
+
+    cancelDeleteBtn.addEventListener('click', () => {
+        deletePanel.classList.remove('translate-x-0');
+        deletePanel.classList.add('translate-x-full');
+    });
+
+    closeBtn2.addEventListener('click', () => {
+        deletePanel.classList.remove('translate-x-0');
+        deletePanel.classList.add('translate-x-full');
+    });
+</script>    
+
+<script>
+    if (window.innerWidth >= 768) {
+        document.querySelectorAll('.task-column').forEach(column => {
+            new Sortable(column, {
+                group: 'kanban-columns',
+                animation: 150,
+                onEnd: function (evt) {
+                    const taskElement = evt.item;
+                    const taskId = taskElement.dataset.taskId;
+                    const oldStatus = taskElement.dataset.status;
+                    const newStatus = evt.to.id.replace('-column', '');
+
+                    if (oldStatus === newStatus) {
+                        return;
+                    }
+
+                    fetch(`/modify_status/${taskId}/${newStatus}/`, {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({})
+                    })
+                    .then(response => {
+                        if (response.ok) {
+                            location.reload();
+                        } else {
+                            console.error('Error moving the task');
+                        }
+                    });
+                }
+            });
+        });
+    }
+</script>

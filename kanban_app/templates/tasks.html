@@ -3,16 +3,16 @@
 
 
 {% for task in column.tasks %}
-    <div class="rounded-sm shadow-md m-1 min-h-16 flex flex-col gap-1 p-3 overflow-y-auto border-solid border-l-4 bg-white cursor-pointer {% if task.status == 'to_do' %}border-l-[#ff5630]{% elif task.status == 'wip' %}border-l-[#ffab00]{% elif task.status == 'on_hold' %}border-l-[#0052cc]{% elif task.status == 'done' %}border-l-[#36b376]{% else %}border-l-neutral-300{% endif %}" data-task-id="{{task.id}}" data-status="{{ task.status }}">
+    <div class="rounded-sm shadow-md m-1 min-h-16 flex flex-col gap-1 p-3 overflow-y-auto border-solid border-l-4 bg-white md:cursor-pointer {% if task.status == 'to_do' %}border-l-[#ff5630]{% elif task.status == 'wip' %}border-l-[#ffab00]{% elif task.status == 'on_hold' %}border-l-[#0052cc]{% elif task.status == 'done' %}border-l-[#36b376]{% else %}border-l-neutral-300{% endif %}" data-task-id="{{task.id}}" data-status="{{ task.status }}">
         <div class="flex justify-between gap-1">
             <div class="flex gap-1 items-center">
                 <img src="{% static 'images/'|add:task.priority|add:'_priority.webp' %}" alt="{{task.priority|title}} priority" class="size-6">
                 <p class="text-sm">{{task.get_days_left}}</p>
             </div>
-            <div class="flex gap-2 justify-center items-center">
-                <i class="fa-solid fa-pen-to-square cursor-pointer text-lg md:text-xl hover:text-[#ff5630]" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-detail="{{ task.detail|escapejs }}" data-task-priority="{{ task.priority }}" data-task-status="{{ task.status }}" onclick="fillTaskForm(this)"></i>
+            <div class="flex gap-4 md:gap-2 justify-center items-center">
+                <i class="fa-solid fa-pen-to-square cursor-pointer text-xl hover:text-[#ff5630]" data-task-id="{{ task.id }}" data-task-title="{{ task.title }}" data-task-detail="{{ task.detail|escapejs }}" data-task-priority="{{ task.priority }}" data-task-status="{{ task.status }}" onclick="fillTaskForm(this)"></i>
                 <button onclick="openDeletePanel({{task.id}})" title="Delete task" class="flex items-center">
-                    <i class="fa-solid fa-trash-can cursor-pointer text-lg md:text-xl hover:text-[#ff5630]"></i>
+                    <i class="fa-solid fa-trash-can cursor-pointer text-xl hover:text-[#ff5630]"></i>
                 </button>
             </div>
         </div>
