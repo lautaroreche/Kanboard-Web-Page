@@ -5,20 +5,21 @@
     <nav class="fixed top-0 left-0 right-0 px-3 py-2 h-16 flex items-center gap-2 justify-between bg-neutral-50 border-b-1 border-neutral-300">
         <a href="/" aria-label="Logo" class="flex items-center">
             <img src="{% static 'images/logo.webp' %}" alt="Kanboard logo" aria-label="Kanboard logo" class="size-12">
-            <h1 class="text-xl font-semibold">Kanboard</h1>
+            <h1 class="text-lg md:text-xl font-semibold">Kanboard</h1>
         </a>
-        <div class="flex gap-2">
-            <button id="open-task-form" class="flex items-center gap-1 px-3 py-2 h-8 bg-[#ff5630] hover:bg-red-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Create task button" title="Create task button">
-                <i class="fa-solid fa-plus"></i>
+        <div class="flex gap-4">
+            <button id="open-task-form" class="flex items-center gap-2 px-3 py-2 h-8 bg-[#ff5630] hover:bg-red-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Create task button" title="Create task button">
+                <i class="fa-solid fa-plus text-xl md:text-base"></i>
                 <span class="hidden md:inline">Create task</span>
             </button>
             <form method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
-                <button type="submit" title="Logout button" class="flex items-center gap-1 px-3 py-2 h-8 bg-gray-500 hover:bg-gray-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Logout button">
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <button type="submit" title="Logout button" class="flex items-center gap-2 px-3 py-2 h-8 bg-gray-500 hover:bg-gray-600 text-white font-semibold shadow-md rounded-sm cursor-pointer" aria-label="Logout button">
+                    <i class="fa-solid fa-arrow-right-from-bracket text-xl md:text-base"></i>
                     <span class="hidden md:inline">Logout</span>
                 </button>
             </form>
+
             {% include 'form_panel.html' %}
         </div>
     </nav>
