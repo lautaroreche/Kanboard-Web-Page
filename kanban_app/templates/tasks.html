@@ -18,6 +18,6 @@
         </div>
         <p class="text-xl font-semibold w-full break-words overflow-y-auto">{{task.title}}</p>
         <hr class="border-solid border-1 {% if task.status == 'to_do' %}border-[#ff5630]{% elif task.status == 'wip' %}border-[#ffab00]{% elif task.status == 'on_hold' %}border-[#0052cc]{% elif task.status == 'done' %}border-[#36b376]{% else %}border-neutral-300{% endif %}">
-        <p class="w-full max-h-24 md:max-h-40 overflow-y-auto text-gray-800 text-sm {% if task.detail|is_url_like %}break-all{% else %}break-words{% endif %}">{{task.detail}}</p>
+        <p class="w-full max-h-24 md:max-h-40 overflow-y-auto text-gray-800 text-sm whitespace-pre-line {% if task.detail|is_url_like %}break-all{% else %}break-words{% endif %}">{{task.detail}}</p>
     </div>
 {% endfor %}
