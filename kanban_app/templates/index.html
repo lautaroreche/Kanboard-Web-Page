@@ -3,7 +3,7 @@
 
 {% block content %}
     {% include 'header.html' %}
-    <main class="flex flex-col md:flex-row gap-4 mt-16 px-6 py-4 md:px-4 md:py-4 overflow-y-auto">
+    <main class="flex flex-col md:flex-row gap-4 mt-16 p-4 overflow-y-auto">
         {% for column in columns %}
             <div id="{{column.status}}-column" class="task-column flex flex-col gap-2 flex-1 bg-neutral-50 rounded-sm">
                 <div class="m-1 flex items-center gap-2 px-2 py-1 rounded-sm shadow-md bg-white">
