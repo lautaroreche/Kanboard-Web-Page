@@ -53,8 +53,8 @@ class Task(models.Model):
         elif days_remaining == 1:
             message = f"{days_remaining} day left"
         elif days_remaining == 0:
-            message = "Expired today"
-        elif days_remaining == 0:
+            message = "Expires today"
+        elif days_remaining == -1:
             message = format_html(
                 '<span class="text-red-600">Expired {} day ago</span>',
                 abs(days_remaining)

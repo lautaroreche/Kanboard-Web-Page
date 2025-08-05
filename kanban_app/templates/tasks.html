@@ -3,7 +3,7 @@
 
 
 {% for task in column.tasks %}
-    <div class="rounded-sm shadow-md m-1 min-h-16 flex flex-col gap-1 p-3 overflow-y-auto border-solid border-l-4 bg-white md:cursor-pointer {% if task.status == 'to_do' %}border-l-[#ff5630]{% elif task.status == 'wip' %}border-l-[#ffab00]{% elif task.status == 'on_hold' %}border-l-[#0052cc]{% elif task.status == 'done' %}border-l-[#36b376]{% else %}border-l-neutral-300{% endif %}" data-task-id="{{task.id}}" data-status="{{ task.status }}">
+    <div class="rounded-sm shadow-md m-1 min-h-16 flex flex-col gap-1 p-3 border-solid border-l-4 bg-white md:cursor-pointer {% if task.status == 'to_do' %}border-l-[#ff5630]{% elif task.status == 'wip' %}border-l-[#ffab00]{% elif task.status == 'on_hold' %}border-l-[#0052cc]{% elif task.status == 'done' %}border-l-[#36b376]{% else %}border-l-neutral-300{% endif %}" data-task-id="{{task.id}}" data-status="{{ task.status }}">
         <div class="flex justify-between gap-1">
             <div class="flex gap-1 items-center">
                 <img src="{% static 'images/'|add:task.priority|add:'_priority.webp' %}" alt="{{task.priority|title}} priority" class="size-6">
@@ -16,8 +16,8 @@
                 </button>
             </div>
         </div>
-        <p class="text-xl font-semibold w-full break-words overflow-y-auto">{{task.title}}</p>
+        <p class="text-xl font-semibold w-full break-words">{{task.title}}</p>
         <hr class="border-solid border-1 {% if task.status == 'to_do' %}border-[#ff5630]{% elif task.status == 'wip' %}border-[#ffab00]{% elif task.status == 'on_hold' %}border-[#0052cc]{% elif task.status == 'done' %}border-[#36b376]{% else %}border-neutral-300{% endif %}">
-        <p class="w-full max-h-24 md:max-h-40 overflow-y-auto text-gray-800 text-sm whitespace-pre-line {% if task.detail|is_url_like %}break-all{% else %}break-words{% endif %}">{{task.detail}}</p>
+        <p class="w-full text-gray-800 text-sm md:text-base whitespace-pre-line {% if task.detail|is_url_like %}break-all{% else %}break-words{% endif %}">{{task.detail}}</p>
     </div>
 {% endfor %}
