@@ -37,3 +37,6 @@ Pipfile.lock
 # IDEs files and text editors
 .vscode/
 .idea/
+
+# Tailwind CSS and Node
+input.css
