@@ -1,27 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
 {% block content %}
-<main class="h-screen w-full flex items-center justify-center p-4 bg-neutral-50">
-    <div class="w-full max-w-md bg-white border border-neutral-300 rounded-sm shadow-md p-8 flex flex-col gap-6">
-        <h2 class="text-3xl font-semibold text-center">Sign in</h2>
+<main class="flex items-center justify-center h-screen w-full p-4 bg-neutral-50">
+    <div class="flex flex-col gap-6 w-full max-w-md bg-white border border-neutral-100 rounded-md shadow-sm p-8">
+        <img src="{% static 'images/logo.webp' %}" alt="Kanboard logo" aria-label="Kanboard logo" class="size-12 object-center block mx-auto">
+        <h2 class="text-3xl font-semibold text-center">Log in to Kanboard</h2>
         <form method="POST" class="flex flex-col gap-4">
             {% csrf_token %}
             <div class="flex flex-col gap-2">
                 <label for="id_username" class="text-lg font-semibold">Username</label>
-                <input type="text" name="username" id="id_username" autofocus required
-                    class="px-3 py-2 border border-neutral-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#ff5630]">
+                <input type="text" name="username" id="id_username" placeholder="Username" autofocus required
+                    class="px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff5630]">
             </div>
             <div class="flex flex-col gap-2">
                 <label for="id_password" class="text-lg font-semibold">Password</label>
-                <input type="password" name="password" id="id_password" required
-                    class="px-3 py-2 border border-neutral-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-[#ff5630]">
+                <input type="password" name="password" id="id_password" placeholder="Password" required
+                    class="px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff5630]">
             </div>
             {% if form.errors %}
                 <p class="text-lg text-red-600">Invalid username or password.</p>
             {% endif %}
             <button type="submit"
-                class="px-3 py-2 bg-[#ff5630] text-lg text-white font-semibold rounded-sm shadow-md cursor-pointer">
+                class="py-2 bg-[#ff5630] text-lg text-white font-semibold rounded-md shadow-sm cursor-pointer">
                 Login
             </button>
         </form>
