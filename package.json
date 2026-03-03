@@ -3,8 +3,12 @@
     "@tailwindcss/cli": "^4.1.11",
     "tailwindcss": "^4.1.11"
   },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
   "scripts": {
     "build:css": "npx tailwindcss -i ./kanban_app/static/css/input.css -o ./kanban_app/static/css/output.css --minify",
-    "watch:css": "npx tailwindcss -i ./kanban_app/static/css/input.css -o ./kanban_app/static/css/output.css --watch"
+    "watch:css": "npx tailwindcss -i ./kanban_app/static/css/input.css -o ./kanban_app/static/css/output.css --watch",
+    "dev": "concurrently \"npm run watch:css\" \"python3 manage.py runserver\""
   }
 }
