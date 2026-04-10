@@ -3,8 +3,8 @@
 
 
 {% block content %}
-<main class="flex items-center justify-center h-screen w-full p-4 bg-neutral-50">
-    <div class="flex flex-col gap-6 w-full max-w-md bg-white border border-neutral-100 rounded-md shadow-sm p-8">
+<main class="flex items-center justify-center h-screen w-full p-4 bg-cover bg-center bg-no-repeat" style="background-image: url('{% static 'images/login-background.webp' %}');">
+    <div class="flex flex-col gap-6 w-full max-w-md bg-white border border-neutral-100 rounded-md shadow-sm p-8 opacity-95">
         <img src="{% static 'images/logo.webp' %}" alt="Kanboard logo" aria-label="Kanboard logo" class="size-12 object-center block mx-auto">
         <h2 class="text-3xl font-semibold text-center">Log in to Kanboard</h2>
         <form method="POST" class="flex flex-col gap-4">
