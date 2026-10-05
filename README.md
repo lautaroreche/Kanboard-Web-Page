@@ -27,6 +27,7 @@ To view and edit the project, you only need:
 4. Execute:
    ```bash
    python manage.py runserver
+**🔗 Project page:** https://lautaroreche.github.io/Kanboard-Web-Page/ · **Live app:** https://kanboard-web-page.onrender.com/
 
 ## Customization 🎨
 You can modify the styles and structure of the page by editing the following files:
